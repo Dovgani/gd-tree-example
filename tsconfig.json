@@ -17,7 +17,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "gd-tree-wrapper": [
+        "dist/gd-tree-wrapper/gd-tree-wrapper",
+        "dist/gd-tree-wrapper"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

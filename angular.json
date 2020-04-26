@@ -2,5 +2,166 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "gd-tree-example": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/gd-tree-example",
+      "sourceRoot": "projects/gd-tree-example/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/gd-tree-example",
+            "index": "projects/gd-tree-example/src/index.html",
+            "main": "projects/gd-tree-example/src/main.ts",
+            "polyfills": "projects/gd-tree-example/src/polyfills.ts",
+            "tsConfig": "projects/gd-tree-example/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/gd-tree-example/src/favicon.ico",
+              "projects/gd-tree-example/src/assets"
+            ],
+            "styles": [
+              "projects/gd-tree-example/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/gd-tree-example/src/environments/environment.ts",
+                  "with": "projects/gd-tree-example/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "gd-tree-example:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "gd-tree-example:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "gd-tree-example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/gd-tree-example/src/test.ts",
+            "polyfills": "projects/gd-tree-example/src/polyfills.ts",
+            "tsConfig": "projects/gd-tree-example/tsconfig.spec.json",
+            "karmaConfig": "projects/gd-tree-example/karma.conf.js",
+            "assets": [
+              "projects/gd-tree-example/src/favicon.ico",
+              "projects/gd-tree-example/src/assets"
+            ],
+            "styles": [
+              "projects/gd-tree-example/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/gd-tree-example/tsconfig.app.json",
+              "projects/gd-tree-example/tsconfig.spec.json",
+              "projects/gd-tree-example/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/gd-tree-example/e2e/protractor.conf.js",
+            "devServerTarget": "gd-tree-example:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "gd-tree-example:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "gd-tree-wrapper": {
+      "projectType": "library",
+      "root": "projects/gd-tree-wrapper",
+      "sourceRoot": "projects/gd-tree-wrapper/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/gd-tree-wrapper/tsconfig.lib.json",
+            "project": "projects/gd-tree-wrapper/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/gd-tree-wrapper/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/gd-tree-wrapper/src/test.ts",
+            "tsConfig": "projects/gd-tree-wrapper/tsconfig.spec.json",
+            "karmaConfig": "projects/gd-tree-wrapper/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/gd-tree-wrapper/tsconfig.lib.json",
+              "projects/gd-tree-wrapper/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "cli": {
+    "analytics": false
+  },
+  "defaultProject": "gd-tree-example"
 }

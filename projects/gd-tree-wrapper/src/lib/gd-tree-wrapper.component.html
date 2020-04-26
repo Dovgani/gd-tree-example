@@ -1,0 +1,30 @@
+<gd-window #window>
+    <div id="treeContainer" style="width: calc(100% - 4px); height: calc(100% - 4px); margin: 1px 2px 2px 1px; background: transparent;">
+        <gd-tree #tree></gd-tree>
+    </div>
+</gd-window>
+
+<gd-window #pgWindow width=418 height=202>
+    <gd-pg *ngIf="ShowFolderPG"   #pgFolder   (isReady)="onPGIsReady($event)" [Settings]='folderSettings'   [Data]='dataToEdit' [ParentID]="tree.ID" [ParentName]="treeName" [Name]="'edit folder'"></gd-pg>
+    <gd-pg *ngIf="ShowSolutionPG" #pgSolution (isReady)="onPGIsReady($event)" [Settings]='solutionSettings' [Data]='dataToEdit' [ParentID]="tree.ID" [ParentName]="treeName" [Name]="'edit solution'"></gd-pg>
+    <gd-pg *ngIf="ShowProjectPG"  #pgProject  (isReady)="onPGIsReady($event)" [Settings]='projectSettings'  [Data]='dataToEdit' [ParentID]="tree.ID" [ParentName]="treeName" [Name]="'edit project'"></gd-pg>
+</gd-window>
+
+<gd-window #deleteConfirm>
+    <div style="text-align: center; font-size: 14px; margin: 6px 0 0 0">You about to delete a Record</div> 
+    <div style="text-align: center; font-size: 14px;">Are You sure?</div> 
+    <div style="text-align: center; font-size: 10px; font-style: italic; margin: 4px 0 0 0">( Record will be deleted and cannot be recovered )</div>
+</gd-window>
+
+<gd-window #searchMessage>
+    <div style="text-align: center; font-size: 14px; margin: 6px 0 0 0">No any match data found</div> 
+    <div style="text-align: center; font-size: 10px; font-style: italic; margin: 4px 0 0 0">( change search criteria )</div>
+</gd-window>
+
+<gd-contextmenu #treeMenu (itemClick)="onTreeAreaClickMenu($event)">
+    <li>
+        <div style="float: left; margin: 1px 2px 0 2px"><img src='assets/tree/default/Add.png'/></div>
+        <div class="gd-separetor" style="float: left;"></div>
+        <div style="float: left; font-size: 12px; margin: 3px 0 0 8px">Add Folder</div>
+    </li>
+</gd-contextmenu>

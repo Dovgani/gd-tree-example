@@ -1,0 +1,15 @@
+
+.content .demo {
+    border: 0px solid #CCC;
+}
+
+.content .demo .inner-content {
+    border: 1px solid #CCC;
+    max-height: 170px;
+    width: 600px;
+}
+
+.content .demo > div {
+    max-height: 200px;
+    overflow: auto;
+}

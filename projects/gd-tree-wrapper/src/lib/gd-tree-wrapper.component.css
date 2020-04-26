@@ -1,0 +1,42 @@
+.treeSearchContainer
+{
+    position    : relative;
+    display     : inline-block;
+    height      : 23px;
+    width       : calc(100% - 7px);
+    margin      : -1px 2px 0px 3px;
+    background  : white;
+    border-radius: 3px;
+    border      : solid 0px #ddd;
+}
+
+.treeSearchTemplate
+{
+    position    : relative;
+    height      : 20px;
+    width       : 100%;
+    margin      : 0;
+    padding-left: 2px;
+    border      : none;
+    color       : #bbb;
+    font-stretch: condensed;
+    font-style  : italic;
+}
+
+.treeSearchButton2
+{
+    position    : absolute;
+    top         : 1px;
+    right       : -2px;
+    text-align  : center;
+    width       : 20px;
+    height      : 19px;
+    border      : 1px solid #ccc;
+    background  : #eee;
+    border-radius: 3px;
+}
+
+.gd-tree .gd_windowContent    { padding    : 0 0 1px 0;            }
+.gd-tree .gd_windowScrollArea { padding    : 2px 0 0 0 !important; }
+.gd-tree .jstree-icon:empty   { width      : 20px;                 }
+.gd-tree .gd_windowFooter     { background : transparent;          } 

@@ -1,0 +1,16 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/gd-tree-wrapper",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "gd-common": "gd-common",
+      "gd-tree": "gd-tree",
+      "gd-pg": "gd-pg",
+      "gd-tooltip": "gd-tooltip",
+      "gd-accordion": "gd-accordion",
+      "gd-contextmenu": "gd-contextmenu",
+      "gd-window": "gd-window"
+    } 
+  }
+}
